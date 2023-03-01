@@ -36,7 +36,10 @@ class _AuthScreenState extends State<AuthScreen> {
     if (_controller1.text.isEmpty || _controller2.text.isEmpty) {
       setState(() => print('Empty'));
     } else {
-      setState(() => print('Not empty'));
+      setState(() {
+        print('Not empty');
+        Navigator.pushNamed(context, 'authError');
+      });
     }
   }
 
@@ -179,18 +182,20 @@ class _AuthScreenState extends State<AuthScreen> {
               SizedBox(
                 height: height / 60,
               ),
-              SizedBox(
-                height: height / 15,
-                width: width,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      backgroundColor: Color.fromRGBO(137, 115, 198, 1)),
-                  onPressed: _checkForm,
+              InkWell(
+                onTap: _checkForm,
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Color.fromRGBO(137, 115, 198, 1)),
+                  alignment: Alignment.center,
+                  height: height / 15,
+                  width: width,
                   child: Text('Войти',
                       style: GoogleFonts.inter(
-                          fontSize: height / 50, fontWeight: FontWeight.w600)),
+                          fontSize: height / 50,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white)),
                 ),
               ),
             ],
