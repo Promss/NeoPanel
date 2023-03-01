@@ -10,8 +10,8 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   bool passwordVisible = false;
-  TextEditingController _controller1 = TextEditingController();
-  TextEditingController _controller2 = TextEditingController();
+  final TextEditingController _controller1 = TextEditingController();
+  final TextEditingController _controller2 = TextEditingController();
   bool checked = true;
 
   var result = 'Checkbox is CHECKED';
@@ -87,13 +87,13 @@ class _AuthScreenState extends State<AuthScreen> {
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Color.fromRGBO(137, 115, 198, 1),
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Color.fromRGBO(137, 115, 198, 1),
                       ),
                     ),
@@ -123,13 +123,13 @@ class _AuthScreenState extends State<AuthScreen> {
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Color.fromRGBO(137, 115, 198, 1),
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: Color.fromRGBO(137, 115, 198, 1),
                       ),
                     ),
@@ -162,21 +162,21 @@ class _AuthScreenState extends State<AuthScreen> {
                           getCheckBoxValue(value!);
                         },
                         side: MaterialStateBorderSide.resolveWith((states) =>
-                            BorderSide(color: Colors.lightGreen, width: 2)),
+                            const BorderSide(color: Colors.lightGreen, width: 2)),
                         activeColor: Colors.lightGreen,
                         checkColor: Colors.white,
                         // tristate: false,
                       ),
-                      Text('Запомнить вход')
+                      const Text('Запомнить вход')
                     ],
                   ),
                   TextButton(
                       style:
                           TextButton.styleFrom(foregroundColor: Colors.black54),
                       onPressed: (() {
-                        print('Hello');
+                        Navigator.pushNamed(context, 'resetPassword');
                       }),
-                      child: Text('Забыли пароль?'))
+                      child: const Text('Забыли пароль?'))
                 ],
               ),
               SizedBox(
@@ -187,7 +187,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Color.fromRGBO(137, 115, 198, 1)),
+                      color: const Color.fromRGBO(137, 115, 198, 1)),
                   alignment: Alignment.center,
                   height: height / 15,
                   width: width,
