@@ -14,7 +14,7 @@ class AuthorizationError extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: width / 22),
           child: Column(children: [
-            Padding(
+            Container(
               padding: EdgeInsets.only(top: height / 12, bottom: height / 20),
               child: Column(
                 children: [
@@ -42,7 +42,7 @@ class AuthorizationError extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Color.fromRGBO(137, 115, 198, 1)),
+                    color: const Color.fromRGBO(137, 115, 198, 1)),
                 alignment: Alignment.center,
                 height: height / 15,
                 width: width,
