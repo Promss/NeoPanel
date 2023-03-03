@@ -171,7 +171,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 height: height / 60,
               ),
               InkWell(
-                onTap: (() {}),
+                onTap: (() {
+                  Navigator.pushNamed(context, 'fillingProfile');
+                }),
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
