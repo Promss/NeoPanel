@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neopanel/authScreen.dart';
 import 'package:neopanel/authorizationErrorScreen.dart';
+import 'package:neopanel/fillingProfileScreen.dart';
 import 'package:neopanel/resetPasswordScreen.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         'auth': (context) => const AuthScreen(),
         'authError': (context) => const AuthorizationError(),
         'resetPassword': (context) => const ResetPasswordScreen(),
+        'fillingProfile': (context) => const FillingProfile(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
