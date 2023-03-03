@@ -10,8 +10,6 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   bool passwordVisible = false;
-  final TextEditingController _controller1 = TextEditingController();
-  final TextEditingController _controller2 = TextEditingController();
   bool checked = true;
 
   var result = 'Checkbox is CHECKED';
@@ -28,17 +26,6 @@ class _AuthScreenState extends State<AuthScreen> {
       setState(() {
         checked = false;
         result = 'Checkbox is UN-CHECKED';
-      });
-    }
-  }
-
-  void _checkForm() {
-    if (_controller1.text.isEmpty || _controller2.text.isEmpty) {
-      setState(() => print('Empty'));
-    } else {
-      setState(() {
-        print('Not empty');
-        Navigator.pushNamed(context, 'authError');
       });
     }
   }
@@ -83,8 +70,8 @@ class _AuthScreenState extends State<AuthScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: height / 100),
                 child: TextField(
-                  controller: _controller1,
                   decoration: InputDecoration(
+                    // hintText: 'example@gmail.com',
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: const BorderSide(
@@ -119,8 +106,8 @@ class _AuthScreenState extends State<AuthScreen> {
                 padding: EdgeInsets.symmetric(vertical: height / 100),
                 child: TextField(
                   obscureText: !passwordVisible,
-                  controller: _controller2,
                   decoration: InputDecoration(
+                    // hintText: 'Password',
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: const BorderSide(
@@ -162,7 +149,8 @@ class _AuthScreenState extends State<AuthScreen> {
                           getCheckBoxValue(value!);
                         },
                         side: MaterialStateBorderSide.resolveWith((states) =>
-                            const BorderSide(color: Colors.lightGreen, width: 2)),
+                            const BorderSide(
+                                color: Colors.lightGreen, width: 2)),
                         activeColor: Colors.lightGreen,
                         checkColor: Colors.white,
                         // tristate: false,
@@ -183,7 +171,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 height: height / 60,
               ),
               InkWell(
-                onTap: _checkForm,
+                onTap: (() {}),
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
