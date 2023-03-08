@@ -9,14 +9,8 @@ class ResetPasswordScreen extends StatefulWidget {
 }
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
-  String? validateEmail(String value) {
-    if (!RegExp(r'^[\w-\.]+@gmail\.com$').hasMatch(value)) {
-      return 'Please enter a valid Gmail address';
-    }
-    return null;
-  }
+  
 
-  TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +55,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 padding:
                     EdgeInsets.only(top: height / 100, bottom: height / 25),
                 child: TextField(
-                  controller: emailController,
+                  // controller: emailController,
                   decoration: InputDecoration(
                     hintText: 'example@gmail.com',
                     enabledBorder: OutlineInputBorder(
@@ -81,20 +75,6 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               ),
               InkWell(
                 onTap: (() {
-                  String email = emailController.text;
-                  String? validationResult = validateEmail(email);
-                  if (validationResult == null) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('Вам отправлено письмо'),
-                      ),
-                    );
-                  } else {
-                    // The email is invalid. Display an error message.
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(validationResult)),
-                    );
-                  }
                 }),
                 child: Container(
                   decoration: BoxDecoration(
